@@ -25,6 +25,7 @@ const MicroMotoGaragePage = () => {
     bike: "",
     service: "",
     notes: "",
+    pickup_datetime: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -82,6 +83,7 @@ const MicroMotoGaragePage = () => {
 📞 Phone: ${formData.phone}
 🏍️ Bike: ${formData.bike}
 🛠️ Service: ${formData.service}
+📅 Pickup: ${formData.pickup_datetime ? new Date(formData.pickup_datetime).toLocaleString() : "Not specified"}
 📝 Notes: ${formData.notes || "None"}
 🔐 Tracking Code: ${code}
 `;
@@ -97,6 +99,7 @@ const MicroMotoGaragePage = () => {
         notes: formData.notes,
         status: "pending", // ✅ default to "pending"
         tracking_code: code,
+        pickup_datetime: formData.pickup_datetime ? new Date(formData.pickup_datetime).toISOString() : null,
       },
     ]);
 
@@ -120,7 +123,7 @@ const MicroMotoGaragePage = () => {
       if (result.success) {
         setSuccessMsg("✅ Booking sent successfully!");
         setTrackingCode(code);
-        setFormData({ name: "", phone: "", bike: "", service: "", notes: "" });
+        setFormData({ name: "", phone: "", bike: "", service: "", notes: "", pickup_datetime: "" });
         setCaptchaToken(null);
       } else {
         console.error('Notification error:', result.error);
@@ -189,14 +192,6 @@ const MicroMotoGaragePage = () => {
             >
               <FaPhone />
               Call Now: 9996210
-            </a>
-            <a
-              href="/book-service"
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-10 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 border border-green-500/30"
-              style={{backgroundColor: '#16a34a !important', borderColor: '#16a34a !important', color: '#ffffff !important'}}
-            >
-              <FaMapMarkerAlt />
-              Schedule Pickup
             </a>
             <a
               href="mailto:moto@micronet.mv"
@@ -503,6 +498,19 @@ const MicroMotoGaragePage = () => {
                   <option>Pickup/Drop Request</option>
                   <option>Custom Work</option>
                 </select>
+              </div>
+
+              <div>
+                <label className="block text-gray-700 dark:text-red-200 font-semibold mb-2">Pickup Date & Time (Optional)</label>
+                <input
+                  type="datetime-local"
+                  name="pickup_datetime"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  value={formData.pickup_datetime}
+                  onChange={handleChange}
+                  min={new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16)}
+                />
+                <p className="text-sm text-gray-600 mt-1">Schedule a pickup time, or leave blank for us to contact you</p>
               </div>
 
               <div>

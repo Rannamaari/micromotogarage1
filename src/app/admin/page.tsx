@@ -22,6 +22,7 @@ export default function AdminPage() {
     tracking_code: string;
     created_at: string;
     updated_at?: string;
+    pickup_datetime?: string;
   }[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -138,6 +139,11 @@ export default function AdminPage() {
               <p>
                 <strong>📅 Updated:</strong> {createdAt.format("DD MMM YYYY")}
               </p>
+              {b.pickup_datetime && (
+                <p>
+                  <strong>🕒 Pickup:</strong> {dayjs(b.pickup_datetime).format("DD MMM YYYY, HH:mm")}
+                </p>
+              )}
             </div>
 
             <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2">
