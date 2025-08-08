@@ -112,7 +112,7 @@ const MicroMotoGaragePage = () => {
       const res = await fetch('/api/send-notification', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, captchaToken }),
       });
 
       const result = await res.json();
@@ -121,9 +121,14 @@ const MicroMotoGaragePage = () => {
         setSuccessMsg("✅ Booking sent successfully!");
         setTrackingCode(code);
         setFormData({ name: "", phone: "", bike: "", service: "", notes: "" });
+        setCaptchaToken(null);
       } else {
         console.error('Notification error:', result.error);
-        alert("⚠️ Notification failed to send, but booking was saved.");
+        if (result.error?.includes('CAPTCHA')) {
+          alert("❌ CAPTCHA verification failed. Please try again.");
+        } else {
+          alert("⚠️ Notification failed to send, but booking was saved.");
+        }
       }
     } catch (err) {
       console.error('Network error:', err);
