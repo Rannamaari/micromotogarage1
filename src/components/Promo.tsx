@@ -11,7 +11,8 @@ export default function Promo() {
         href="https://invite.viber.com/?g2=AQB6VW5%2BjEpi%2BVNDeeMeKCx1%2ByKhzHEzOHAkWi5iYe5aLoRiBC33rfZmXXzKPavI"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block mt-4 bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700"
+        className="inline-block mt-4 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700"
+        style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
       >
         Join Our Viber Group
       </a>

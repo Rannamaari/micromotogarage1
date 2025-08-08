@@ -51,7 +51,8 @@ export default function MMGAds() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/mmg"
-                  className="bg-yellow-500 hover:bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+                  style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
                 >
                   <FaMotorcycle />
                   Book Service Now
@@ -88,7 +89,8 @@ export default function MMGAds() {
               <p className="text-sm text-blue-200 line-through mb-4">Regular: MVR 600</p>
               <Link
                 href="/mmg"
-                className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded font-semibold inline-block transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold inline-block transition-colors"
+                style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
               >
                 Book Now
               </Link>
@@ -104,7 +106,8 @@ export default function MMGAds() {
               <p className="text-sm text-blue-200 mb-4">High-quality engine oil</p>
               <Link
                 href="/mmg"
-                className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded font-semibold inline-block transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold inline-block transition-colors"
+                style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
               >
                 Book Now
               </Link>
@@ -120,7 +123,8 @@ export default function MMGAds() {
               <p className="text-sm text-blue-200 mb-4">*With any service booking</p>
               <Link
                 href="/mmg"
-                className="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded font-semibold inline-block transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold inline-block transition-colors"
+                style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
               >
                 Schedule
               </Link>

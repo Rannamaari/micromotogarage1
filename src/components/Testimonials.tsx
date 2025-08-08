@@ -141,7 +141,7 @@ export default function Testimonials() {
           {/* Current Testimonial */}
           <div className="text-center mb-8">
             <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed italic">
-              "{testimonials[currentIndex].text}"
+              &ldquo;{testimonials[currentIndex].text}&rdquo;
             </p>
 
             {/* Rating */}

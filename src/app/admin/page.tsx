@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { createClient } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
@@ -11,7 +11,18 @@ export default function AdminPage() {
 
   const [checkingSession, setCheckingSession] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [bookings, setBookings] = useState<any[]>([]);
+  const [bookings, setBookings] = useState<{
+    id: string;
+    name: string;
+    phone: string;
+    bike_model: string;
+    service_type: string;
+    notes?: string;
+    status: string;
+    tracking_code: string;
+    created_at: string;
+    updated_at?: string;
+  }[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 5;
@@ -28,9 +39,9 @@ export default function AdminPage() {
       setCheckingSession(false);
     };
     checkSession();
-  }, [router, supabase]);
+  }, [router, supabase, fetchBookings]);
 
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     const { data, error } = await supabase
       .from("bookings")
       .select("*")
@@ -40,7 +51,7 @@ export default function AdminPage() {
     } else {
       setBookings(data || []);
     }
-  };
+  }, [supabase]);
 
   const updateStatus = async (id: string, status: string) => {
     const { error } = await supabase

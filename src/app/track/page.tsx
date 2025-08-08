@@ -7,7 +7,16 @@ import { supabase } from "@/lib/superbase";
 
 const TrackBookingPage = () => {
   const [trackingCode, setTrackingCode] = useState("");
-  const [result, setResult] = useState<any | null>(null);
+  const [result, setResult] = useState<{
+    id: string;
+    name: string;
+    phone: string;
+    bike_model: string;
+    service_type: string;
+    notes?: string;
+    status: string;
+    tracking_code: string;
+  } | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -56,6 +65,7 @@ const TrackBookingPage = () => {
             onClick={handleSearch}
             disabled={loading || !trackingCode}
             className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700"
+            style={{backgroundColor: '#dc2626 !important', color: '#ffffff !important'}}
           >
             {loading ? "Checking..." : "Track"}
           </button>
@@ -101,7 +111,8 @@ const TrackBookingPage = () => {
         <div className="text-center mt-10">
           <a
             href="tel:+9609996210"
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 text-lg"
+            className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 text-lg"
+            style={{backgroundColor: '#dc2626 !important', color: '#ffffff !important'}}
           >
             📞 Urgent Help? Call 9996210
           </a>

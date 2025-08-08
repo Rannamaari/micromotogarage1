@@ -41,6 +41,7 @@ export default function Hero() {
           <a
             href="/mmg"
             className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-sky-400/30"
+            style={{backgroundColor: '#3b82f6 !important', borderColor: '#3b82f6 !important', color: '#ffffff !important'}}
           >
             🏍️ Micro Moto Garage
           </a>
@@ -49,6 +50,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white/10 backdrop-blur-lg hover:bg-white/20 border border-white/30 hover:border-white/50 px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            style={{backgroundColor: '#1e40af !important', borderColor: '#1e40af !important', color: '#ffffff !important'}}
           >
             🛒 Online Shop
           </a>

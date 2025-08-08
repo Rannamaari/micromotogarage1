@@ -180,6 +180,7 @@ const MicroMotoGaragePage = () => {
             <a
               href="tel:+9609996210"
               className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-10 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 border border-red-500/30"
+              style={{backgroundColor: '#dc2626 !important', borderColor: '#dc2626 !important', color: '#ffffff !important'}}
             >
               <FaPhone />
               Call Now: 9996210
@@ -187,6 +188,7 @@ const MicroMotoGaragePage = () => {
             <a
               href="mailto:moto@micronet.mv"
               className="bg-red-600 hover:bg-red-700 border border-red-500 hover:border-red-400 text-white px-10 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+              style={{backgroundColor: '#dc2626 !important', borderColor: '#dc2626 !important', color: '#ffffff !important'}}
             >
               <FaEnvelope />
               Email Us
@@ -194,6 +196,7 @@ const MicroMotoGaragePage = () => {
             <button
               onClick={scrollToBookingForm}
               className="bg-red-600 hover:bg-red-700 border border-red-500 hover:border-red-400 text-white px-10 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+              style={{backgroundColor: '#dc2626 !important', borderColor: '#dc2626 !important', color: '#ffffff !important'}}
             >
               <FaWrench />
               Book a Service
@@ -404,7 +407,7 @@ const MicroMotoGaragePage = () => {
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-8 rounded-full"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Schedule your motorcycle service online. We'll confirm your booking and provide a tracking code.
+              Schedule your motorcycle service online. We&apos;ll confirm your booking and provide a tracking code.
             </p>
           </div>
 
@@ -512,6 +515,7 @@ const MicroMotoGaragePage = () => {
                 type="submit"
                 className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
                 disabled={loading}
+                style={{backgroundColor: '#dc2626 !important', color: '#ffffff !important'}}
               >
                 {loading ? (
                   <>
