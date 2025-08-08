@@ -191,6 +191,14 @@ const MicroMotoGaragePage = () => {
               Call Now: 9996210
             </a>
             <a
+              href="/book-service"
+              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-10 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 border border-green-500/30"
+              style={{backgroundColor: '#16a34a !important', borderColor: '#16a34a !important', color: '#ffffff !important'}}
+            >
+              <FaMapMarkerAlt />
+              Schedule Pickup
+            </a>
+            <a
               href="mailto:moto@micronet.mv"
               className="bg-red-600 hover:bg-red-700 border border-red-500 hover:border-red-400 text-white px-10 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
               style={{backgroundColor: '#dc2626 !important', borderColor: '#dc2626 !important', color: '#ffffff !important'}}
