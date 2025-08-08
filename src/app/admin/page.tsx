@@ -27,6 +27,18 @@ export default function AdminPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 5;
 
+  const fetchBookings = useCallback(async () => {
+    const { data, error } = await supabase
+      .from("bookings")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) {
+      console.error("Error fetching:", error.message);
+    } else {
+      setBookings(data || []);
+    }
+  }, [supabase]);
+
   useEffect(() => {
     const checkSession = async () => {
       const { data } = await supabase.auth.getSession();
@@ -40,18 +52,6 @@ export default function AdminPage() {
     };
     checkSession();
   }, [router, supabase, fetchBookings]);
-
-  const fetchBookings = useCallback(async () => {
-    const { data, error } = await supabase
-      .from("bookings")
-      .select("*")
-      .order("created_at", { ascending: false });
-    if (error) {
-      console.error("Error fetching:", error.message);
-    } else {
-      setBookings(data || []);
-    }
-  }, [supabase]);
 
   const updateStatus = async (id: string, status: string) => {
     const { error } = await supabase
