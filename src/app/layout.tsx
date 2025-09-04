@@ -3,23 +3,31 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MicroNET — Tech that works, Service that cares",
-  description: "IT solutions, Micro Moto Garage, and Micro Cool home-appliance servicing for Malé. Professional networking, CCTV, motorcycle service, and air-conditioning repairs in the Maldives.",
+  title: "MicroNET Maldives — Tech that works, Service that cares | IT Solutions & Motorcycle Service",
+  description: "Leading IT solutions provider in Maldives offering networking, CCTV, Apple products, SOPHOS security. Micro Moto Garage for motorcycle service & Micro Cool for home appliance repairs in Malé.",
   keywords: [
-    "MicroNET",
-    "Maldives IT",
+    "MicroNET Maldives",
+    "IT solutions Maldives",
+    "networking Maldives", 
+    "CCTV installation Malé",
     "Micro Moto Garage",
+    "motorcycle service Malé",
     "Micro Cool",
-    "networking",
-    "CCTV",
-    "motorcycle service",
-    "air conditioning repair",
+    "air conditioning repair Maldives",
+    "refrigerator repair Malé",
+    "washing machine service",
+    "Apple reseller Maldives",
+    "SOPHOS security",
+    "computer peripherals",
+    "technology solutions",
     "Malé",
-    "technology solutions"
+    "Dharubaaruge"
   ],
-  authors: [{ name: "MicroNET Maldives" }],
-  creator: "MicroNET",
-  publisher: "MicroNET",
+  authors: [{ name: "MicroNET Maldives", url: "https://micronet.mv" }],
+  creator: "MicroNET Maldives",
+  publisher: "MicroNET Maldives",
+  category: "Technology Services",
+  classification: "Business",
   formatDetection: {
     email: false,
     address: false,
@@ -30,33 +38,36 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "MicroNET — Tech that works, Service that cares",
-    description: "IT solutions, Micro Moto Garage, and Micro Cool home-appliance servicing for Malé",
+    title: "MicroNET Maldives — Leading IT Solutions & Service Provider",
+    description: "Professional IT solutions, motorcycle service, and home appliance repairs in Maldives. Serving businesses and households with quality technology services since 2018.",
     url: 'https://micronet.mv',
-    siteName: 'MicroNET',
+    siteName: 'MicroNET Maldives',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/MicroNETlogo.png',
         width: 1200,
         height: 630,
-        alt: 'MicroNET - Technology Solutions in Maldives',
+        alt: 'MicroNET Maldives - Technology Solutions, Micro Moto Garage, and Micro Cool Services',
       },
     ],
     locale: 'en_US',
     type: 'website',
+    countryName: 'Maldives',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "MicroNET — Tech that works, Service that cares",
-    description: "IT solutions, Micro Moto Garage, and Micro Cool home-appliance servicing for Malé",
-    images: ['/images/og-image.jpg'],
+    title: "MicroNET Maldives — IT Solutions & Service Provider",
+    description: "Leading provider of IT solutions, motorcycle service, and home appliance repairs in Maldives",
+    images: ['/images/MicroNETlogo.png'],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
@@ -64,15 +75,19 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/MicroNETlogo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/logo-150x150.png', sizes: '150x150', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
-    shortcut: '/images/MicroNETlogo.png',
+    shortcut: '/favicon.ico',
     apple: [
-      { url: '/images/logo-300x300.png', sizes: '300x300', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   manifest: '/site.webmanifest',
+  verification: {
+    google: undefined, // Add Google Search Console verification when available
+  },
 };
 
 export default function RootLayout({
@@ -94,24 +109,97 @@ export default function RootLayout({
                 {
                   "@type": "Organization",
                   "@id": "https://micronet.mv/#organization",
-                  "name": "MicroNET",
+                  "name": "MicroNET Maldives",
+                  "alternateName": "MicroNET",
                   "url": "https://micronet.mv",
                   "logo": {
                     "@type": "ImageObject",
-                    "url": "https://micronet.mv/images/MicroNETlogo.png"
+                    "url": "https://micronet.mv/images/MicroNETlogo.png",
+                    "width": 300,
+                    "height": 300
+                  },
+                  "image": "https://micronet.mv/images/MicroNETlogo.png",
+                  "description": "Leading IT solutions provider in Maldives offering networking, CCTV, Apple products, SOPHOS security, motorcycle service, and home appliance repairs.",
+                  "foundingDate": "2018",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Near Dharubaaruge",
+                    "addressLocality": "Malé",
+                    "addressCountry": "MV",
+                    "addressRegion": "Malé"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "4.170952480173003",
+                    "longitude": "73.51547925208867"
                   },
                   "contactPoint": [
                     {
                       "@type": "ContactPoint",
                       "telephone": "+960-7779493",
                       "contactType": "customer service",
-                      "availableLanguage": ["en", "dv"]
+                      "availableLanguage": ["en", "dv"],
+                      "areaServed": "MV"
+                    },
+                    {
+                      "@type": "ContactPoint", 
+                      "telephone": "+960-9996210",
+                      "contactType": "technical support",
+                      "availableLanguage": ["en", "dv"],
+                      "areaServed": "MV"
                     }
                   ],
+                  "email": "moto@micronet.mv",
                   "sameAs": [
                     "https://garage.micronet.mv",
                     "https://baazaar.mv"
+                  ],
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "Maldives"
+                  },
+                  "serviceType": [
+                    "IT Solutions",
+                    "Networking Services",
+                    "CCTV Installation", 
+                    "Computer Peripherals",
+                    "Apple Products",
+                    "SOPHOS Security"
                   ]
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://micronet.mv/#micromotogarage",
+                  "name": "Micro Moto Garage",
+                  "parentOrganization": {
+                    "@id": "https://micronet.mv/#organization"
+                  },
+                  "description": "Professional motorcycle service center offering full service, oil change, brake service, and pickup/delivery in Malé, Maldives.",
+                  "telephone": "+960-7779493",
+                  "email": "moto@micronet.mv",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Near Dharubaaruge",
+                    "addressLocality": "Malé",
+                    "addressCountry": "MV"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "4.170952480173003",
+                    "longitude": "73.51547925208867"
+                  },
+                  "areaServed": {
+                    "@type": "City",
+                    "name": "Malé"
+                  },
+                  "serviceType": [
+                    "Motorcycle Repair",
+                    "Oil Change",
+                    "Brake Service",
+                    "Full Service",
+                    "Pickup and Delivery"
+                  ],
+                  "priceRange": "$$"
                 },
                 {
                   "@type": "LocalBusiness",
@@ -120,7 +208,7 @@ export default function RootLayout({
                   "parentOrganization": {
                     "@id": "https://micronet.mv/#organization"
                   },
-                  "description": "Air-Condition Servicing, Refrigerator Servicing, Washing Machine Servicing",
+                  "description": "Home appliance repair services specializing in air conditioning, refrigerator, and washing machine servicing in Malé, Maldives.",
                   "telephone": "+960-7779493",
                   "address": {
                     "@type": "PostalAddress",
@@ -130,8 +218,8 @@ export default function RootLayout({
                   },
                   "geo": {
                     "@type": "GeoCoordinates",
-                    "latitude": "4.17569",
-                    "longitude": "73.50668"
+                    "latitude": "4.170952480173003",
+                    "longitude": "73.51547925208867"
                   },
                   "areaServed": {
                     "@type": "City",
@@ -140,8 +228,21 @@ export default function RootLayout({
                   "serviceType": [
                     "Air Conditioning Repair",
                     "Refrigerator Repair", 
-                    "Washing Machine Repair"
-                  ]
+                    "Washing Machine Repair",
+                    "Home Appliance Service"
+                  ],
+                  "priceRange": "$$"
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://micronet.mv/#website",
+                  "url": "https://micronet.mv",
+                  "name": "MicroNET Maldives",
+                  "description": "Leading IT solutions and service provider in Maldives",
+                  "publisher": {
+                    "@id": "https://micronet.mv/#organization"
+                  },
+                  "inLanguage": "en-US"
                 }
               ]
             })

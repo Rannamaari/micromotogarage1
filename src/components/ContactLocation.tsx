@@ -336,14 +336,14 @@ export default function ContactLocation() {
               className="glass-strong rounded-2xl overflow-hidden border border-sky-500/20"
             >
               <iframe
-                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBOyLFJMWbMazJz9_2jNwQLo8OyIZvZN9Y&q=Micro+Moto+Garage+Male+Maldives"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.70320016623566!2d73.51547925208867!3d4.170952480173003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b3f7f70ec752915%3A0xa50f30954afb5a8e!2sMicro%20Moto%20Garage!5e0!3m2!1sen!2smv!4v1756971298330!5m2!1sen!2smv"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Micro Moto Garage Location - Malé, Maldives"
+                title="Micro Moto Garage - Professional Motorcycle Service in Malé, Maldives"
               />
             </motion.div>
           </motion.div>

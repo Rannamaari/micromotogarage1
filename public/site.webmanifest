@@ -1,16 +1,23 @@
 {
-  "name": "MicroNET — Tech that works, Service that cares",
+  "name": "MicroNET Maldives — IT Solutions & Service Provider",
   "short_name": "MicroNET",
-  "description": "IT solutions, Micro Moto Garage, and Micro Cool home-appliance servicing for Malé",
+  "description": "Leading IT solutions provider in Maldives. Micro Moto Garage for motorcycle service & Micro Cool for home appliance repairs in Malé.",
   "icons": [
     {
-      "src": "/images/MicroNETlogo.png",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/images/logo-300x300.png",
-      "sizes": "300x300",
+      "src": "/icon-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ],
@@ -19,7 +26,8 @@
   "display": "standalone",
   "start_url": "/",
   "scope": "/",
-  "lang": "en",
+  "lang": "en-US",
   "dir": "ltr",
-  "orientation": "portrait-primary"
+  "orientation": "portrait-primary",
+  "categories": ["business", "technology", "automotive", "repair"]
 }
