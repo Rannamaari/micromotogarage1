@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 import SectionHeader from './SectionHeader';
 import { 
   fadeInUp, 
-  staggerContainer, 
-  cardHover,
+  staggerContainer,
   scaleIn 
 } from '@/lib/animations';
 

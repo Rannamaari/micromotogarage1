@@ -7,8 +7,7 @@ import SectionHeader from './SectionHeader';
 import { 
   fadeInUp, 
   staggerContainer,
-  magneticHover,
-  scaleIn 
+  magneticHover
 } from '@/lib/animations';
 
 interface FormData {
@@ -78,7 +77,7 @@ export default function ContactLocation() {
         setSubmitStatus('error');
         setErrorMessage(result.message || 'Failed to send message. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setErrorMessage('Network error. Please check your connection and try again.');
     } finally {
@@ -229,7 +228,7 @@ export default function ContactLocation() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="mb-6 p-4 rounded-xl bg-green-600/20 border border-green-500/30 text-green-400"
                 >
-                  ✅ Message sent successfully! We'll get back to you soon.
+                  ✅ Message sent successfully! We&apos;ll get back to you soon.
                 </motion.div>
               )}
 
