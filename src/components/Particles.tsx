@@ -19,7 +19,7 @@ interface ParticlesProps {
 
 export default function Particles({ className = '', particleCount = 50 }: ParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
   const particlesRef = useRef<Particle[]>([]);
 
   useEffect(() => {
@@ -104,7 +104,7 @@ export default function Particles({ className = '', particleCount = 50 }: Partic
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      if (animationFrameRef.current) {
+      if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
