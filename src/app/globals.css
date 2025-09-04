@@ -1,34 +1,149 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Geist+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @theme {
   --color-*: initial;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Geist Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', 'SF Mono', Consolas, monospace;
+  
+  /* Ice Blue Color Palette */
+  --color-ice-blue-50: rgb(240 249 255);
+  --color-ice-blue-100: rgb(224 242 254);
+  --color-ice-blue-200: rgb(186 230 253);
+  --color-ice-blue-300: rgb(125 211 252);
+  --color-ice-blue-400: rgb(56 189 248);
+  --color-ice-blue-500: rgb(14 165 233);
+  --color-ice-blue-600: rgb(2 132 199);
+  --color-ice-blue-700: rgb(3 105 161);
+  --color-ice-blue-800: rgb(7 89 133);
+  --color-ice-blue-900: rgb(12 74 110);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with ice-blue theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #111111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #64748b;
+  background: linear-gradient(180deg, rgb(56 189 248) 0%, rgb(14 165 233) 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: linear-gradient(180deg, rgb(14 165 233) 0%, rgb(2 132 199) 100%);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid rgb(56 189 248);
+  outline-offset: 2px;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glow effects */
+.glow-ice-blue {
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
+}
+
+.glow-ice-blue-strong {
+  box-shadow: 0 0 60px rgba(56, 189, 248, 0.4);
+}
+
+/* Aurora animation keyframes */
+@keyframes aurora {
+  0%, 100% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-60%) rotate(90deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-40%) translateY(-50%) rotate(180deg);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateX(-60%) translateY(-40%) rotate(270deg);
+    opacity: 0.5;
+  }
+}
+
+/* Particle animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Magnetic hover effect */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic:hover {
+  transform: translateY(-2px) scale(1.02);
 }

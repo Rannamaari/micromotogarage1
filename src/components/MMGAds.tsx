@@ -1,145 +1,162 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaMotorcycle, FaTools, FaClock, FaPhone } from "react-icons/fa";
+'use client';
 
-export default function MMGAds() {
+import { motion } from 'framer-motion';
+import { 
+  fadeInUp, 
+  staggerContainer,
+  magneticHover,
+  scaleIn
+} from '@/lib/animations';
+
+export default function MMGAd() {
   return (
-    <section className="py-16 px-4 bg-gradient-to-r from-sky-600 to-blue-700 dark:from-blue-900 dark:to-black text-white relative overflow-hidden transition-colors duration-300">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-sky-400 dark:bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-600 dark:bg-blue-600 rounded-full blur-3xl"></div>
+    <section className="py-24 px-4 relative overflow-hidden">
+      {/* Background with red accent */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-red-600/20 via-red-500/15 to-red-700/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-red-500/15 via-red-600/10 to-red-700/20 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            🏍️ Micro Moto Garage - Featured Services
-          </h2>
-          <p className="text-sky-100 dark:text-blue-100 text-lg max-w-2xl mx-auto">
-            Your trusted motorcycle service center in Malé. Professional, reliable, and affordable.
-          </p>
-        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          className="glass-strong rounded-3xl border border-red-500/20 overflow-hidden shadow-2xl"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left side - Content */}
+            <motion.div 
+              variants={fadeInUp}
+              className="p-12 lg:p-16 bg-gradient-to-br from-red-600/90 via-red-700/90 to-red-800/90 text-white relative"
+            >
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 right-4 text-6xl">🏍️</div>
+                <div className="absolute bottom-4 left-4 text-4xl">🔧</div>
+              </div>
 
-        {/* Main Ad Banner */}
-        <div className="bg-white/20 backdrop-blur-sm dark:bg-blue-900/50 rounded-2xl p-8 mb-12 border border-white/30 dark:border-blue-700/50 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Image
-                  src="/images/Micro-Moto-Logo.webp"
-                  alt="Micro Moto Garage Logo"
-                  width={60}
-                  height={60}
-                  className="rounded-full"
-                />
-                <div>
-                  <h3 className="text-2xl font-bold">Micro Moto Garage</h3>
-                  <p className="text-blue-200">Professional Motorcycle Services</p>
+              <div className="relative z-10">
+                <motion.div 
+                  variants={scaleIn}
+                  className="flex items-center mb-8"
+                >
+                  <div className="text-5xl mr-4">🏍️</div>
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold">
+                      Micro Moto Garage
+                    </h2>
+                    <p className="text-red-100 text-lg">Professional Motorcycle Service</p>
+                  </div>
+                </motion.div>
+                
+                <motion.h3 
+                  variants={fadeInUp}
+                  className="text-2xl md:text-3xl font-bold mb-6 text-yellow-300"
+                >
+                  🚀 Full Service Promo
+                </motion.h3>
+                
+                <motion.p 
+                  variants={fadeInUp}
+                  className="text-lg text-red-100 mb-8 leading-relaxed"
+                >
+                  Complete checks, engine oil, brake tune, chain/sprocket inspection — done by pros near Dharubaaruge.
+                </motion.p>
+                
+                <motion.div 
+                  variants={staggerContainer}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
+                >
+                  {[
+                    { icon: "🔧", title: "Expert Service", desc: "Certified technicians" },
+                    { icon: "📞", title: "Easy Booking", desc: "Call or visit us" },
+                    { icon: "🚚", title: "Pickup/Drop", desc: "Free in Malé area" },
+                    { icon: "⚡", title: "Quick Service", desc: "Same day completion" }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeInUp}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="bg-red-500/30 rounded-xl p-4 backdrop-blur-sm border border-red-400/20 hover:border-red-300/40 transition-all duration-300"
+                    >
+                      <div className="text-2xl mb-2">{item.icon}</div>
+                      <h4 className="font-semibold text-white">{item.title}</h4>
+                      <p className="text-sm text-red-100">{item.desc}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+                
+                <motion.div 
+                  variants={fadeInUp}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
+                  <motion.a
+                    href="https://garage.micronet.mv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={magneticHover}
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="magnetic bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-center hover:bg-red-50 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                  >
+                    Visit MMG Site
+                  </motion.a>
+                  <motion.a
+                    href="tel:+960-7779493"
+                    variants={magneticHover}
+                    whileHover="hover"
+                    whileTap="tap"
+                    className="magnetic border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-center hover:bg-white hover:text-red-600 transition-all duration-300"
+                  >
+                    Call 7779493
+                  </motion.a>
+                </motion.div>
+              </div>
+            </motion.div>
+            
+            {/* Right side - Visual */}
+            <motion.div 
+              variants={scaleIn}
+              className="bg-gradient-to-br from-red-100/10 via-red-200/10 to-red-300/10 p-12 lg:p-16 flex items-center justify-center backdrop-blur-sm"
+            >
+              <div className="text-center">
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.1, 
+                    rotate: [0, -5, 5, -5, 0],
+                    transition: { duration: 0.5 }
+                  }}
+                  className="w-48 h-48 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center text-8xl shadow-2xl mb-8 mx-auto glow-ice-blue"
+                >
+                  🏍️
+                </motion.div>
+                <h4 className="text-2xl font-bold text-white mb-4">
+                  Professional Care for Your Bike
+                </h4>
+                <p className="text-gray-300 text-lg">
+                  Located near Dharubaaruge, Malé
+                </p>
+                
+                {/* Service highlights */}
+                <div className="mt-8 space-y-3">
+                  {["Full Service", "Oil Change", "Brake Service"].map((service, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1 }}
+                      className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-white border border-white/20 mx-1"
+                    >
+                      {service}
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-              
-              <h4 className="text-3xl font-bold mb-4 text-yellow-300">
-                🎉 Special Offer: 20% OFF Full Service!
-              </h4>
-              <p className="text-lg mb-6 text-blue-100">
-                Get comprehensive motorcycle maintenance at unbeatable prices. 
-                Located near Dharubaaruge, Malé - your bike deserves the best care!
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/mmg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
-                  style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
-                >
-                  <FaMotorcycle />
-                  Book Service Now
-                </Link>
-                <a
-                  href="tel:+9609996210"
-                  className="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
-                >
-                  <FaPhone />
-                  Call: 9996210
-                </a>
-              </div>
-            </div>
-
-            <div className="text-center lg:text-right">
-              <div className="bg-white/20 rounded-xl p-6 backdrop-blur-sm">
-                <FaMotorcycle className="text-6xl text-yellow-300 mx-auto lg:mx-0 lg:ml-auto mb-4" />
-                <h5 className="text-xl font-bold mb-2">24/7 Emergency Service</h5>
-                <p className="text-blue-100 mb-4">Fast, reliable motorcycle repairs when you need them most</p>
-                <div className="text-2xl font-bold text-yellow-300">9996210</div>
-              </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-
-        {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
-            <div className="text-center">
-              <FaTools className="text-4xl text-yellow-300 mx-auto mb-4" />
-              <h4 className="text-xl font-semibold mb-3">Full Service Special</h4>
-              <p className="text-blue-100 mb-4">Complete motorcycle maintenance package</p>
-              <div className="text-2xl font-bold text-yellow-300 mb-2">MVR 450</div>
-              <p className="text-sm text-blue-200 line-through mb-4">Regular: MVR 600</p>
-              <Link
-                href="/mmg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold inline-block transition-colors"
-                style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
-              >
-                Book Now
-              </Link>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
-            <div className="text-center">
-              <FaClock className="text-4xl text-yellow-300 mx-auto mb-4" />
-              <h4 className="text-xl font-semibold mb-3">Express Oil Change</h4>
-              <p className="text-blue-100 mb-4">Quick 30-minute oil change service</p>
-              <div className="text-2xl font-bold text-yellow-300 mb-2">MVR 180</div>
-              <p className="text-sm text-blue-200 mb-4">High-quality engine oil</p>
-              <Link
-                href="/mmg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold inline-block transition-colors"
-                style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
-              >
-                Book Now
-              </Link>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
-            <div className="text-center">
-              <FaMotorcycle className="text-4xl text-yellow-300 mx-auto mb-4" />
-              <h4 className="text-xl font-semibold mb-3">Pickup & Drop</h4>
-              <p className="text-blue-100 mb-4">Convenient bike pickup and delivery service</p>
-              <div className="text-2xl font-bold text-yellow-300 mb-2">FREE*</div>
-              <p className="text-sm text-blue-200 mb-4">*With any service booking</p>
-              <Link
-                href="/mmg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold inline-block transition-colors"
-                style={{backgroundColor: '#2563eb !important', color: '#ffffff !important'}}
-              >
-                Schedule
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className="mt-12 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 inline-block border border-white/20">
-            <p className="text-blue-100 mb-2">📍 Located near Dharubaaruge, Malé</p>
-            <p className="text-blue-100 mb-2">🕒 Open: 8:00 AM - 10:00 PM (Daily)</p>
-            <p className="text-yellow-300 font-semibold">📞 Emergency: 9996210 (24/7)</p>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

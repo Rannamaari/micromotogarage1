@@ -1,80 +1,181 @@
-import Image from "next/image";
+'use client';
+
+import { motion } from 'framer-motion';
+import Particles from './Particles';
+import {
+  fadeInUp,
+  staggerContainer,
+  scaleIn,
+  magneticHover,
+} from '@/lib/animations';
 
 export default function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-      {/* Professional Background */}
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+      {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-800/20 via-transparent to-indigo-900/30"></div>
-        <div className="absolute top-10 right-10 w-72 h-72 bg-sky-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        {/* Aurora Background */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-sky-500/20 via-blue-600/20 to-sky-500/10 rounded-full blur-3xl animate-[aurora_20s_ease-in-out_infinite]" />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-600/15 via-sky-400/15 to-blue-500/20 rounded-full blur-3xl animate-[aurora_25s_ease-in-out_infinite_reverse]" />
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-sky-400/10 via-blue-700/15 to-sky-600/10 rounded-full blur-3xl animate-[aurora_30s_ease-in-out_infinite]" />
+        
+        {/* Particles */}
+        <Particles particleCount={80} />
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <motion.div
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+        className="relative z-10 max-w-7xl mx-auto"
+      >
         {/* Logo Section */}
-        <div className="flex justify-center mb-16">
-          <div className="flex items-center justify-center p-6">
-            <Image
-              src="/images/MicroNETlogo.png"
-              alt="MicroNET Logo"
-              width={180}
-              height={180}
-              className="rounded-full shadow-2xl ring-4 ring-sky-300/50 hover:ring-sky-400/60 transition-all duration-500"
-            />
+        <motion.div
+          variants={scaleIn}
+          className="flex justify-center mb-16"
+        >
+          <div className="relative p-8">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white/10 backdrop-blur-sm border border-sky-400/30 shadow-2xl glow-ice-blue-strong flex items-center justify-center">
+              <img
+                src="/images/MicroNETlogo.png"
+                alt="MicroNET Logo"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-full"
+              />
+            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400/20 to-blue-500/20 blur-xl animate-pulse" />
           </div>
-        </div>
+        </motion.div>
 
         {/* Content Section */}
-        <div className="max-w-5xl mx-auto space-y-8 mb-16">
-          <div className="space-y-6">
-            <p className="text-3xl md:text-4xl lg:text-5xl text-white font-light leading-relaxed">
-              Connecting Technology with People in the Maldives
-            </p>
-            <p className="text-xl md:text-2xl text-sky-200 font-light leading-relaxed">
-              Your trusted partner for comprehensive digital solutions, professional motorcycle services, and cutting-edge technological innovation
-            </p>
-          </div>
-        </div>
+        <motion.div variants={fadeInUp} className="max-w-6xl mx-auto space-y-8 mb-16">
+          <motion.h1 
+            variants={fadeInUp}
+            className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight"
+          >
+            MicroNET — Tech that works,{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">
+              Service that cares
+            </span>
+          </motion.h1>
+          
+          <motion.p 
+            variants={fadeInUp}
+            className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-4xl mx-auto"
+          >
+            IT solutions, Micro Moto Garage, and Micro Cool home-appliance servicing for Malé.
+          </motion.p>
+        </motion.div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <a
-            href="/mmg"
-            className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-sky-400/30"
-            style={{backgroundColor: '#3b82f6 !important', borderColor: '#3b82f6 !important', color: '#ffffff !important'}}
+        <motion.div 
+          variants={fadeInUp}
+          className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+        >
+          <motion.button
+            variants={magneticHover}
+            whileHover="hover"
+            whileTap="tap"
+            onClick={() => scrollToSection('contact')}
+            className="magnetic glass-strong px-8 py-4 rounded-2xl text-white font-semibold text-lg border border-sky-500/30 glow-ice-blue hover:border-sky-400/50 transition-all duration-300"
           >
-            🏍️ Micro Moto Garage
-          </a>
-          <a
-            href="https://shop.micronet.mv"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white/10 backdrop-blur-lg hover:bg-white/20 border border-white/30 hover:border-white/50 px-10 py-4 rounded-full text-white font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-            style={{backgroundColor: '#1e40af !important', borderColor: '#1e40af !important', color: '#ffffff !important'}}
-          >
-            🛒 Online Shop
-          </a>
-        </div>
+            Contact Us
+          </motion.button>
+          
+          <div className="flex flex-col sm:flex-row gap-3">
+            <motion.a
+              href="https://garage.micronet.mv"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={magneticHover}
+              whileHover="hover"
+              whileTap="tap"
+              className="magnetic bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all duration-300"
+            >
+              🏍️ Micro Moto Garage
+            </motion.a>
+            
+            <motion.button
+              variants={magneticHover}
+              whileHover="hover"
+              whileTap="tap"
+              onClick={() => scrollToSection('micro-cool')}
+              className="magnetic bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all duration-300"
+            >
+              ❄️ Micro Cool
+            </motion.button>
+            
+            <motion.a
+              href="https://baazaar.mv"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={magneticHover}
+              whileHover="hover"
+              whileTap="tap"
+              className="magnetic bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 px-6 py-3 rounded-xl text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+            >
+              🛒 Shop: baazaar.mv
+            </motion.a>
+          </div>
+        </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="bg-white/15 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 group">
-            <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔧</div>
-            <h3 className="font-semibold text-xl mb-3 text-white">Expert Services</h3>
-            <p className="text-blue-100 leading-relaxed">Professional motorcycle maintenance and repair services with certified technicians</p>
-          </div>
-          <div className="bg-white/15 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 group">
-            <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">💻</div>
-            <h3 className="font-semibold text-xl mb-3 text-white">Tech Solutions</h3>
-            <p className="text-blue-100 leading-relaxed">Cutting-edge digital solutions and IT infrastructure for modern businesses</p>
-          </div>
-          <div className="bg-white/15 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 group">
-            <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🇲🇻</div>
-            <h3 className="font-semibold text-xl mb-3 text-white">Local Expertise</h3>
-            <p className="text-blue-100 leading-relaxed">Proudly serving the Maldivian community with trusted, reliable excellence</p>
-          </div>
-        </div>
-      </div>
+        <motion.div 
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+        >
+          {[
+            {
+              icon: "🔧",
+              title: "Expert Services",
+              description: "Professional motorcycle maintenance and repair services with certified technicians"
+            },
+            {
+              icon: "❄️",
+              title: "Micro Cool (NEW)",
+              description: "Air-conditioning, refrigerator, and washing machine servicing for your home"
+            },
+            {
+              icon: "🌐",
+              title: "IT Solutions",
+              description: "Cutting-edge digital solutions and network infrastructure for modern businesses"
+            }
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: "0 20px 60px rgba(56, 189, 248, 0.15)"
+              }}
+              className="glass rounded-2xl p-8 border border-white/10 hover:border-sky-500/30 transition-all duration-500 group cursor-pointer"
+            >
+              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                {feature.icon}
+              </div>
+              <h3 className="font-bold text-xl mb-4 text-white group-hover:text-sky-400 transition-colors duration-300">
+                {feature.title}
+              </h3>
+              <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

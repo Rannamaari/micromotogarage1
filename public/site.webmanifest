@@ -1,0 +1,25 @@
+{
+  "name": "MicroNET — Tech that works, Service that cares",
+  "short_name": "MicroNET",
+  "description": "IT solutions, Micro Moto Garage, and Micro Cool home-appliance servicing for Malé",
+  "icons": [
+    {
+      "src": "/images/MicroNETlogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-300x300.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0ea5e9",
+  "background_color": "#000000",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "orientation": "portrait-primary"
+}
