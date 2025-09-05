@@ -64,10 +64,11 @@ export default function Hero() {
         <motion.div variants={fadeInUp} className="max-w-6xl mx-auto space-y-8 mb-16">
           <motion.h1 
             variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight"
+            className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
           >
-            MicroNET — Tech that works,{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">
+            <span className="text-white">MicroNET — Tech that works,</span>
+            <br />
+            <span className="text-sky-400 glow-ice-blue">
               Service that cares
             </span>
           </motion.h1>
@@ -83,19 +84,21 @@ export default function Hero() {
         {/* Action Buttons */}
         <motion.div 
           variants={fadeInUp}
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
+          {/* Primary CTA Button */}
           <motion.button
             variants={magneticHover}
             whileHover="hover"
             whileTap="tap"
             onClick={() => scrollToSection('contact')}
-            className="magnetic glass-strong px-8 py-4 rounded-2xl text-white font-semibold text-lg border border-sky-500/30 glow-ice-blue hover:border-sky-400/50 transition-all duration-300"
+            className="magnetic bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 px-8 py-4 rounded-2xl text-white font-semibold text-lg shadow-xl hover:shadow-2xl glow-ice-blue transition-all duration-300 min-w-[180px]"
           >
             Contact Us
           </motion.button>
           
-          <div className="flex flex-col sm:flex-row gap-3">
+          {/* Secondary Buttons - All Same Size */}
+          <div className="flex flex-wrap justify-center gap-3">
             <motion.a
               href="https://garage.micronet.mv"
               target="_blank"
@@ -103,7 +106,7 @@ export default function Hero() {
               variants={magneticHover}
               whileHover="hover"
               whileTap="tap"
-              className="magnetic bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all duration-300"
+              className="magnetic bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-6 py-3 rounded-xl text-white font-medium text-sm shadow-lg hover:shadow-xl transition-all duration-300 min-w-[160px] text-center"
             >
               🏍️ Micro Moto Garage
             </motion.a>
@@ -113,7 +116,7 @@ export default function Hero() {
               whileHover="hover"
               whileTap="tap"
               onClick={() => scrollToSection('micro-cool')}
-              className="magnetic bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 px-6 py-3 rounded-xl text-white font-medium text-sm transition-all duration-300"
+              className="magnetic bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-700 hover:to-sky-700 px-6 py-3 rounded-xl text-white font-medium text-sm shadow-lg hover:shadow-xl transition-all duration-300 min-w-[160px] text-center"
             >
               ❄️ Micro Cool
             </motion.button>
@@ -125,9 +128,9 @@ export default function Hero() {
               variants={magneticHover}
               whileHover="hover"
               whileTap="tap"
-              className="magnetic bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 px-6 py-3 rounded-xl text-white font-medium text-sm backdrop-blur-sm transition-all duration-300"
+              className="magnetic glass-strong border border-white/20 hover:border-white/40 px-6 py-3 rounded-xl text-white font-medium text-sm backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 min-w-[160px] text-center"
             >
-              🛒 Shop: baazaar.mv
+              🛒 baazaar.mv
             </motion.a>
           </div>
         </motion.div>

@@ -72,16 +72,16 @@ export default function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center cursor-pointer gap-3"
+              className="flex items-center cursor-pointer"
               onClick={() => handleNavClick('#home')}
             >
-              <img
-                src="/images/MicroNETlogo.png"
-                alt="MicroNET Logo"
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full ring-2 ring-sky-400/30 hover:ring-sky-400/60 transition-all duration-300"
-              />
-              <div className="text-2xl md:text-3xl font-bold text-white glow-ice-blue">
-                MicroNET
+              <div className="relative p-2">
+                <img
+                  src="/images/MicroNETlogo.png"
+                  alt="MicroNET"
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-lg hover:drop-shadow-xl transition-all duration-300"
+                />
+                <div className="absolute inset-0 rounded-full bg-sky-400/10 blur-lg opacity-0 hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
 
